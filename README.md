@@ -8,8 +8,8 @@ License: GPL-3.0-or-later
 Vue3 Image Slideshow component and "ready-to-use" script. Configurable and customizable.  
 Ready for mobile, not optimized yet
 
-![Screenshot 1](https://github.com/jrmarco/svis/blob/master/screenshot/svis-1.png?raw=true)  
-![Screenshot 2](https://github.com/jrmarco/svis/blob/master/screenshot/svis-2.png?raw=true)
+![Screenshot 1](https://github.com/jrmarco/svis/blob/main/screenshot/svis-1.png?raw=true)  
+![Screenshot 2](https://github.com/jrmarco/svis/blob/main/screenshot/svis-2.png?raw=true)
 
 ## Description
 Svis ( Simple Vue3 Image Slideshow ) it's a Vue3 component customizable and capable to display images as slideshow with fullscreen image loader, with controls. Package come as Vue3 component or minified script ready to use on your web page. 
