@@ -7,17 +7,17 @@
     <h1 ref="titleElement">{{ title }}</h1>
     <div
       ref="mainContainer"
-      class="main-container"
+      class="svis-main-container"
     >
       <div
         v-if="paginated.length"
         ref="slider"
-        class="slider"
+        class="svis-slider"
       >
         <div
           ref="previousBtn"
           @click="goPevious()"
-          class="svis-page left pointer"
+          class="svis-page svis-left svis-pointer"
           :aria-label="translation.previous"
           :title="translation.previous"
         ></div>
@@ -28,7 +28,7 @@
         >
           <img
             :src="image.src"
-            class='slider-image pointer'
+            class='svis-slider-image svis-pointer'
             :title="image.title ?? `${this.translation.image}-${image.index}`"
             @click="showImage(image.index)"
           />
@@ -36,7 +36,7 @@
         <div
           ref="nextButton"
           @click="goNext()"
-          class="svis-page right pointer"
+          class="svis-page svis-right svis-pointer"
           :aria-label="translation.next"
           :title="translation.next"
         ></div>
@@ -45,15 +45,15 @@
     </div>
     <div
       v-show="isFullscreen()"
-      class="svis-fullscreen pointer"
+      class="svis-fullscreen svis-pointer"
     >
       <div
         @click="toggleImage()"
-        class="closeBtn pointer"
+        class="svis-closeBtn svis-pointer"
       />
       <div
         @click="rotate()"
-        class="rotate pointer"
+        class="svis-rotate svis-pointer"
         :aria-label="translation.close"
         :title="translation.close"
       />
@@ -63,15 +63,15 @@
       >
         <img
           ref="image"
-          class="svis-image centered pointer"
+          class="svis-image svis-centered svis-pointer"
           title="no-image"
         />
         <div
           ref="imageParagraph"
           class="svis-paragraph"
         >
-          <p class="title"></p>
-          <p class="description"></p>
+          <p class="svis-title"></p>
+          <p class="svis-description"></p>
         </div>
       </div>
     </div>
@@ -338,8 +338,8 @@ export default {
     bringToFrontButtons() {
       const prev = this.$refs.previousBtn;
       const next = this.$refs.nextButton;
-      prev.classList.add('leftside');
-      next.classList.add('rightside');
+      prev.classList.add('svis-leftside');
+      next.classList.add('svis-rightside');
     },
     /**
      * Reset action buttons
@@ -348,8 +348,8 @@ export default {
     resetButtons() {
       const prev = this.$refs.previousBtn;
       const next = this.$refs.nextButton;
-      prev.classList.remove('leftside');
-      next.classList.remove('rightside');
+      prev.classList.remove('svis-leftside');
+      next.classList.remove('svis-rightside');
     },
     /**
      * Display selected image in fullscreen mode
@@ -379,23 +379,23 @@ export default {
      */
     imageAttributes(index) {
       const paragraph = this.$refs.imageParagraph;
-      const titleDom = paragraph.querySelector('.title');
-      const descriptionDom = paragraph.querySelector('.description');
-      paragraph.classList.remove('hidden');
-      titleDom.classList.remove('hidden');
-      descriptionDom.classList.remove('hidden');
+      const titleDom = paragraph.querySelector('.svis-title');
+      const descriptionDom = paragraph.querySelector('.svis-description');
+      paragraph.style.display = 'block';
+      titleDom.style.display = 'block';
+      descriptionDom.style.display = 'block';
       const title = this.imageSet[index].title !== undefined ? this.imageSet[index].title : '';
       const description = this.imageSet[index].description !== undefined ? this.imageSet[index].description : '';
       titleDom.innerHTML = title;
       descriptionDom.innerHTML = description;
       if (title === '') {
-        titleDom.classList.add('hidden');
+        titleDom.style.display = 'none';
       }
       if (description === '') {
-        descriptionDom.classList.add('hidden');
+        descriptionDom.style.display = 'none';
       }
       if (title === '' && description === '') {
-        paragraph.classList.add('hidden');
+        paragraph.style.display = 'none';
       }
     },
     /**

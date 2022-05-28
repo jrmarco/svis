@@ -5,26 +5,9 @@
  * @author jrmarco <developer@bigm.it>
  * @version 1.0.0
  */
-html, body {
-    font-family: "Ubuntu Mono", monospace;
-    margin: 0px;
-    color: black;
-}
-
 .svis-wrapper {
     margin: 10px auto;
     width: 50%;
-}
-
-.mobile {
-    width: 100% !important;
-}
-
-.small-screen{
-    font-size: 3em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .svis-wrapper > h1 {
@@ -32,11 +15,11 @@ html, body {
     text-shadow: 3px 0px 3px darkslategrey;
 }
 
-.main-container {
+.svis-main-container {
     display: block;
 }
 
-.slider {    
+.svis-slider {    
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -60,7 +43,7 @@ html, body {
     z-index: 6;
 }
 
-.centered {
+.svis-centered {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -77,12 +60,12 @@ html, body {
     justify-content: center;
 }
 
-.slider-image {
+.svis-slider-image {
     width: inherit;
     margin: auto;
 }
 
-.left {
+.svis-left {
     width: 0; 
     height: 0; 
     border-top: 25px solid transparent;
@@ -90,7 +73,7 @@ html, body {
     border-right: 25px solid rgb(0, 5, 82);
 }
 
-.right {
+.svis-right {
     width: 0; 
     height: 0; 
     border-top: 25px solid transparent;
@@ -98,7 +81,7 @@ html, body {
     border-left: 25px solid rgb(0, 5, 82);
 }
 
-.leftside {
+.svis-leftside {
     position: fixed;
     top: 50%;
     left: 0;
@@ -107,7 +90,7 @@ html, body {
     border-right: 25px solid rgb(70, 112, 191);
 }
 
-.rightside {
+.svis-rightside {
     position: fixed;
     top: 50%;
     right: 0;
@@ -132,18 +115,18 @@ html, body {
     color: black;
 }
 
-.title {
+.svis-title {
     text-align: left;
     margin-left: 2em;
     font-size: 1.3em;
 }
 
-.description {
+.svis-description {
     text-align: justify;
     margin-left: 2em;
 }
 
-.closeBtn {
+.svis-closeBtn {
     position: absolute;
     top: 0;
     right: 0;
@@ -151,7 +134,7 @@ html, body {
     background-color: rgb(70, 112, 191);
 }
 
-.closeBtn::after {
+.svis-closeBtn::after {
     display: inline-block;
     content: "\00d7";
     font-size: 2em;
@@ -159,7 +142,7 @@ html, body {
     padding: 2px;
 }
 
-.rotate {
+.svis-rotate {
     position: absolute;
     top: 0;
     left: 0;
@@ -167,7 +150,7 @@ html, body {
     background-color: rgb(70, 112, 191);
 }
 
-.rotate::after {
+.svis-rotate::after {
     display: inline-block;
     content: "\21bb";
     font-size: 2em;
@@ -175,10 +158,6 @@ html, body {
     padding: 2px;
 }
 
-.pointer {
+.svis-pointer {
     cursor: pointer;
-}
-
-.hidden {
-    display: none;
 }
