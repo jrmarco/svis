@@ -6,7 +6,6 @@ Stable tag: 1.0
 License: GPL-3.0-or-later
 
 Vue3 Image Slideshow component and "ready-to-use" script. Configurable and customizable.  
-Ready for mobile, not optimized yet
 
 ![Screenshot 1](https://github.com/jrmarco/svis/blob/main/screenshot/svis-1.png?raw=true)  
 ![Screenshot 2](https://github.com/jrmarco/svis/blob/main/screenshot/svis-2.png?raw=true)
@@ -17,10 +16,9 @@ Svis ( Simple Vue3 Image Slideshow ) it's a Vue3 component customizable and capa
 Main features:
 
 * Customizable options:
-  * Component title
-  * Component language
-  * Number of images per page
-  * Force mobile display
+  * Component title ( prop: title )
+  * Component language ( prop: lang )
+  * Number of images per page ( prop: imagesPerPage, default: 5 )
   * Accept list of Images URL
   * Accept a list of Object with props
     * Props:
