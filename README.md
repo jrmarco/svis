@@ -2,7 +2,7 @@
 ![version](https://img.shields.io/badge/stable-1.0-blue) ![license](https://img.shields.io/badge/license-GPLv3-brightgreen)
 
 Requires: Vue3, Node.js  
-Stable tag: 1.0  
+Stable tag: 1.1
 License: GPL-3.0-or-later
 
 Vue3 Image Slideshow component and "ready-to-use" script. Configurable and customizable.  

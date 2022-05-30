@@ -4,7 +4,11 @@
     ref="wrapper"
     class="svis-wrapper"
   >
-    <h1 ref="titleElement">{{ title }}</h1>
+    <h1
+      v-if="title"
+      ref="titleElement">
+      {{ title }}
+    </h1>
     <div
       ref="mainContainer"
       class="svis-main-container"
@@ -24,7 +28,7 @@
         <div
           v-for="image in paginated" v-bind:key="image.index"
           :id="`thumb-id-${image.index}`"
-          :class="`svis-slide ${isMobile ? 'mobile' : ''}`"
+          :class="`svis-slide`"
         >
           <img
             :src="image.src"
@@ -58,7 +62,7 @@
         :title="translation.close"
       />
       <div
-        class="fullscreen-box"
+        class="svis-fullscreen-box"
         @click="toggleImage()"
       >
         <img
@@ -79,10 +83,10 @@
 </template>
 <script>
 /**
- * v-sshow
+ * svis
  * Simple image slide show made in Vue3
  * Ready for mobile, not optimized yet
- * @version 1.0
+ * @version 1.1
  * @author jrmarco <develper@bigm.it>
  * @license GPL-3.0-or-later
  */
@@ -93,9 +97,8 @@ export default {
   data() {
     return {
       id: null,
-      isMobile: false,
       lang: 'en',
-      title: 'Simple Vue3 Image Slideshow',
+      title: false,
       page: 0,
       totalPages: 0,
       imagesPerPage: 5,
@@ -132,10 +135,6 @@ export default {
   created() {
     // Bind keyboard keys
     this.bindKeys();
-    // Detect mobile
-    this.isMobile = ('ontouchstart' in window)
-      || (navigator.maxTouchPoints > 0)
-      || (navigator.msMaxTouchPoints > 0);
   },
   methods: {
     /**
@@ -148,14 +147,6 @@ export default {
         this.lang = this.settings.lang ?? this.lang;
         this.title = this.settings.title ?? this.title;
         this.imagesPerPage = this.settings.imagesPerPage ?? this.imagesPerPage;
-        this.isMobile = this.settings.forceMobile ?? this.isMobile;
-        // If mobile lower image dislay to 1 ( or given number ) and add mobile class
-        if (this.isMobile) {
-          this.imagesPerPage = this.settings.imagesPerPage ?? 1;
-          this.$refs.wrapper.classList.add('mobile');
-          this.$refs.slider.classList.add('mobile');
-          this.$refs.wrapper.classList.add('small-screen');
-        }
         // Calculate total pages
         this.totalPages = Math.floor(this.imageSet.length / this.imagesPerPage);
         if (this.imageSet.length % this.imagesPerPage) {
@@ -367,9 +358,6 @@ export default {
       this.$refs.image.setAttribute('title', this.activeImage.title ?? `${this.translation.image}-${index}`);
       this.bringToFrontButtons();
       this.imageAttributes(index);
-      if (this.isMobile) {
-        this.$refs.imageParagraph.classList.add('mobile');
-      }
       return true;
     },
     /**

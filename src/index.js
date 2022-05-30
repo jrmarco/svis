@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   for (let i = 0; i < svisContainers.length; i += 1) {
     apps[i] = createApp({
       components: { SvisComponent },
-      template: svisContainers[i].innerHTML
+      template: svisContainers[i].innerHTML,
     });
     apps[i].mount(svisContainers[i]);
   }
